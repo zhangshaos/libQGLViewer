@@ -62,8 +62,8 @@ set(QGLViewer_SRC
     "${PROJECT_SOURCE_DIR}/QGLViewer/saveSnapshot.cpp"
     "${PROJECT_SOURCE_DIR}/QGLViewer/vec.cpp")
 add_library(QGLViewer SHARED ${QGLViewer_SRC})
-target_include_directories(QGLViewer INTERFACE ${CMAKE_CURRENT_SOURCE_DIR})
-target_link_libraries(QGLViewer PRIVATE ${QtLibs} OpenGL::GL OpenGL::GLU)
+target_include_directories(QGLViewer PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+target_link_libraries(QGLViewer PUBLIC ${QtLibs} OpenGL::GL OpenGL::GLU)
 
 if (QGLVIEWER_BUILD_EXAMPLES)
   # Example: animation.
