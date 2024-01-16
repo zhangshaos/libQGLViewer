@@ -64,6 +64,14 @@ set(QGLViewer_SRC
 add_library(QGLViewer SHARED ${QGLViewer_SRC})
 target_include_directories(QGLViewer PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 target_link_libraries(QGLViewer PUBLIC ${QtLibs} OpenGL::GL OpenGL::GLU)
+if(MSVC)
+    # Avoid a compiler error when using std::min/std::max.
+    target_compile_definitions(QGLViewer PRIVATE NOMINMAX)
+endif()
+
+if(WIN32)
+    target_compile_definitions(QGLViewer PRIVATE CREATE_QGLVIEWER_DLL)
+endif()
 
 if (QGLVIEWER_BUILD_EXAMPLES)
   # Example: animation.

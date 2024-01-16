@@ -10,6 +10,8 @@
 
 namespace vrender
 {
+  class Vector3;
+  std::ostream& operator<< (std::ostream&, const Vector3&);
   class Vector3
   {
     public:

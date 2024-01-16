@@ -8,7 +8,9 @@
 
 namespace vrender
 {
-  class NVector3: public Vector3
+  class NVector3;
+  std::ostream& operator<<(std::ostream &out,const NVector3 &u);
+  class NVector3
   {
   public:
     NVector3();
