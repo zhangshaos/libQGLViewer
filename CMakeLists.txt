@@ -8,6 +8,9 @@ cmake_minimum_required(VERSION 3.16)
 # Qt6 minimum compiler version
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/lib) # .lib
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/lib) # .so
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin) # .exe or .dll
 
 # Find includes in corresponding build directories
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
@@ -69,3 +72,14 @@ endif()
 if(WIN32)
     target_compile_definitions(QGLViewer PRIVATE CREATE_QGLVIEWER_DLL)
 endif()
+
+# Find QGLViewer library
+#
+# QGLViewer_INCLUDE_DIR      where to find the include files
+# QGLViewer_LIBRARY_DIR      where to find the libraries
+# QGLViewer_LIBRARIES        list of libraries to link
+# QGLViewer_FOUND            true if QGLViewer was found
+set( QGLViewer_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR} CACHE PATH "QGLViewer Include directory" FORCE )
+set( QGLViewer_LIBRARY_DIR ${CMAKE_ARCHIVE_OUTPUT_DIRECTORY} CACHE PATH "QGLViewer Library directory" FORCE )
+set( QGLViewer_LIBRARIES QGLViewer )
+set( QGLViewer_FOUND 1 CACHE BOOL "Do we have QGLViewer?" FORCE )
