@@ -81,5 +81,5 @@ endif()
 # QGLViewer_FOUND            true if QGLViewer was found
 set( QGLViewer_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR} CACHE PATH "QGLViewer Include directory" FORCE )
 set( QGLViewer_LIBRARY_DIR ${CMAKE_ARCHIVE_OUTPUT_DIRECTORY} CACHE PATH "QGLViewer Library directory" FORCE )
-set( QGLViewer_LIBRARIES QGLViewer )
+set( QGLViewer_LIBRARIES QGLViewer CACHE STRING "QGLViewer Libraries" FORCE )
 set( QGLViewer_FOUND 1 CACHE BOOL "Do we have QGLViewer?" FORCE )
